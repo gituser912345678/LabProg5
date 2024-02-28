@@ -1,0 +1,12 @@
+insert sas
+1
+sasha
+1
+2
+10
+GREEN
+RED
+CHINA
+11
+21
+31

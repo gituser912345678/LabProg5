@@ -1,8 +1,9 @@
 package data;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.Objects;
 
 public class Person implements Comparable<Person> {
     private int id;//
@@ -31,16 +32,34 @@ public class Person implements Comparable<Person> {
         }
     }
 
-    public Person(String[] data) {
-        this.id = Integer.parseInt(data[0]);
-        this.name = data[1];
-        this.coordinates = new Coordinates(Double.parseDouble(data[2]), Integer.parseInt(data[3]));
+    public Person(ArrayList<String> data) {
+        if (arrayListId.isEmpty()) {
+            this.id = 0;
+            arrayListId.add(this.id);
+        } else {
+            this.id = arrayListId.get(arrayListId.size() - 1) + 1;
+            arrayListId.add(this.id);
+        }
+        this.name = data.get(0);
+        this.coordinates = new Coordinates(Double.parseDouble(data.get(1)), Integer.parseInt(data.get(2)));
         this.creationDate = new Date();
-        this.height = Double.parseDouble(data[4]);
-        this.eyeColor = EyeColor.valueOf(data[5]);
-        this.hairColor = HairColor.valueOf(data[6]);
-        this.nationality = Country.valueOf(data[7]);
-        this.location = new Location(Double.parseDouble(data[8]), Long.parseLong(data[9]), Integer.parseInt(data[10]));
+        this.height = Double.parseDouble(data.get(3));
+        this.eyeColor = EyeColor.valueOf(data.get(4));
+        this.hairColor = HairColor.valueOf(data.get(5));
+        this.nationality = Country.valueOf(data.get(6));
+        this.location = new Location(Double.parseDouble(data.get(7)), Long.parseLong(data.get(8)), Integer.parseInt(data.get(9)));
+    }
+
+    public Person(LinkedList<String> data) {
+        this.id = Integer.parseInt(data.get(0));
+        this.name = data.get(1);
+        this.coordinates = new Coordinates(Double.parseDouble(data.get(2)), Integer.parseInt(data.get(3)));
+        this.creationDate = new Date();
+        this.height = Double.parseDouble(data.get(4));
+        this.eyeColor = EyeColor.valueOf(data.get(5));
+        this.hairColor = HairColor.valueOf(data.get(6));
+        this.nationality = Country.valueOf(data.get(7));
+        this.location = new Location(Double.parseDouble(data.get(8)), Long.parseLong(data.get(9)), Integer.parseInt(data.get(10)));
     }
 
     public Location getLocation() {
@@ -141,7 +160,36 @@ public class Person implements Comparable<Person> {
     }
 
     @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinates=" + coordinates +
+                ", creationDate=" + creationDate +
+                ", height=" + height +
+                ", eyeColor=" + eyeColor +
+                ", hairColor=" + hairColor +
+                ", nationality=" + nationality +
+                ", location=" + location +
+                '}';
+    }
+
+    @Override
     public int compareTo(Person person) {
         return this.id - person.id;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(height, person.height);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(height);
     }
 }

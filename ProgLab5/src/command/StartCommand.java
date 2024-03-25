@@ -4,15 +4,14 @@ import command.commandClasses.*;
 import exception.IncorrectDataException;
 import exception.NoElementException;
 import exception.UnknowElementException;
-import exception.UnknownCommandException;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
-/*
+/**
 Класс содержащий команды и вызывающий их.
  */
 public class StartCommand {
-    private static LinkedHashMap<String, Command> commandTable;
+    private LinkedHashMap<String, Command> commandTable;
 
     public StartCommand() {
         commandTable = new LinkedHashMap<>();
@@ -33,17 +32,18 @@ public class StartCommand {
         commandTable.put("execute_script", new ExecuteScriptCommand());
     }
 
-    public static void startExecute(String line) throws UnknowElementException, IncorrectDataException, NoElementException, IOException {
-        String name = line.split(" ")[0];
-        if (!commandTable.containsKey(name)) {
-            throw new UnknownCommandException();
-        } else {
-            Command command = commandTable.get(name);
-            command.execute(line.split(" "));
+    public void startExecute(String line) throws UnknowElementException, IncorrectDataException, NoElementException, IOException {
+        var commandLine = line.split(" ");
+        Command command = commandTable.get(commandLine[0]);
+        if (commandLine[0].equals("save")) {
+            command.execute(commandLine);
+        }
+        else{
+            command.execute(commandLine);
         }
     }
 
-    public static LinkedHashMap<String, Command> getCommandTable() {
+    public LinkedHashMap<String, Command> getCommandTable() {
         return commandTable;
     }
 }

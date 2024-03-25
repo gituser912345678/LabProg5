@@ -1,11 +1,11 @@
 package command.commandClasses;
-/*
+/**
 Команда осуществляющая выход из приложения.
  */
 public class ExitCommand implements Command{
     @Override
     public void execute(String[] arg) {
-        System.exit(1);
+        Reciver.exit();
     }
 
     @Override

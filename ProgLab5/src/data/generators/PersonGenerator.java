@@ -4,8 +4,9 @@ import data.*;
 import exception.IncorrectDataException;
 
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
-/*
+/**
 Класс-генератор обЪекта.
  */
 public class PersonGenerator {
@@ -14,8 +15,8 @@ public class PersonGenerator {
 
         Scanner scanner = new Scanner(System.in);
 
-        int b;
-        Double a;
+        int b = 0;
+        Double a = 0D;
         Coordinates coordinates;
         Location location;
         double x1;
@@ -29,15 +30,16 @@ public class PersonGenerator {
             person = new Person(id);
         }
 
-//        person.setCreationDate(Date.now());
-
         while (true) {
             try {
                 System.out.println("Введите имя: ");
                 person.setName(scanner.nextLine());
                 break;
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage());;
             }
         }
 
@@ -46,8 +48,11 @@ public class PersonGenerator {
                 System.out.println("Введите координату x: ");
                 a = Double.parseDouble(scanner.nextLine());
                 break;
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
             } catch (Exception e) {
-                throw new IncorrectDataException("координата x");
+                System.out.println(e.getMessage());
             }
         }
 
@@ -56,8 +61,11 @@ public class PersonGenerator {
                 System.out.println("Введите координату y: ");
                 b = Integer.parseInt(scanner.nextLine());
                 break;
-            } catch (Exception e) {
-                throw new IncorrectDataException("координата y");
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
 
@@ -69,7 +77,10 @@ public class PersonGenerator {
                 System.out.println("Введите цвет глаз: доступные варианты: GREEN" + "    BLACK" + "    YELLOW" + "    WHITE" + "    BROWN: ");
                 person.setEyeColor(EyeColor.valueOf(scanner.nextLine()));
                 break;
-            } catch (Exception e) {
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -79,7 +90,10 @@ public class PersonGenerator {
                 System.out.println("Введите цвет волос: доступные варианты: RED" + "    BLACK" + "    YELLOW" + "    WHITE" + "    BROWN: ");
                 person.setHairColor(HairColor.valueOf(scanner.nextLine()));
                 break;
-            } catch (Exception e) {
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -89,8 +103,11 @@ public class PersonGenerator {
                 System.out.println("Введите рост: ");
                 person.setHeight(Double.parseDouble(scanner.nextLine()));
                 break;
-            } catch (Exception e) {
-                throw new IncorrectDataException("рост не может задаваться данным значением");
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
 
@@ -99,7 +116,10 @@ public class PersonGenerator {
                 System.out.println("Введите страну: доступные варианты: UNITED_KINGDOM," + "    CHINA," + "    VATICAN," + "    THAILAND," + "    NORTH_KOREA");
                 person.setNationality(Country.valueOf(scanner.nextLine()));
                 break;
-            } catch (Exception e) {
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -109,8 +129,11 @@ public class PersonGenerator {
                 System.out.println("Введите координату x: ");
                 x1 = Double.parseDouble(scanner.nextLine());
                 break;
-            } catch (Exception e) {
-                throw new IncorrectDataException("координата x");
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
 
@@ -119,8 +142,11 @@ public class PersonGenerator {
                 System.out.println("Введите координату y: ");
                 y1 = Integer.parseInt(scanner.nextLine());
                 break;
-            } catch (Exception e) {
-                throw new IncorrectDataException("координата y");
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
 
@@ -129,8 +155,11 @@ public class PersonGenerator {
                 System.out.println("Введите координату z: ");
                 z1 = Integer.parseInt(scanner.nextLine());
                 break;
-            } catch (Exception e) {
-                throw new IncorrectDataException("координата z");
+            } catch (NoSuchElementException e) {
+                System.err.println("Ctrl+D pressed");
+                System.exit(1);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
 

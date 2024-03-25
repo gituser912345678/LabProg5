@@ -1,0 +1,74 @@
+{
+  "new": {
+    "id": 0,
+    "name": "fds",
+    "coordinates": {
+      "x": 32.0,
+      "y": 432
+    },
+    "creationDate": "Mar 1, 2024, 12:39:52 AM",
+    "height": 123.0,
+    "eyeColor": "GREEN",
+    "hairColor": "RED",
+    "nationality": "CHINA",
+    "location": {
+      "x": 123.0,
+      "y": 32,
+      "z": 123
+    }
+  },
+  "Toxa": {
+    "id": 1,
+    "name": "qwe",
+    "coordinates": {
+      "x": 1.0,
+      "y": 2
+    },
+    "creationDate": "Mar 1, 2024, 11:23:45 PM",
+    "height": 189.0,
+    "eyeColor": "GREEN",
+    "hairColor": "RED",
+    "nationality": "CHINA",
+    "location": {
+      "x": 1.0,
+      "y": 2,
+      "z": 1
+    }
+  },
+  "sasha": {
+    "id": 3,
+    "name": "sas",
+    "coordinates": {
+      "x": 1.0,
+      "y": 2
+    },
+    "creationDate": "Mar 5, 2024, 11:18:37 PM",
+    "height": 10.0,
+    "eyeColor": "GREEN",
+    "hairColor": "RED",
+    "nationality": "CHINA",
+    "location": {
+      "x": 11.0,
+      "y": 21,
+      "z": 31
+    }
+  },
+  "123": {
+    "id": 3,
+    "name": "wedwe",
+    "coordinates": {
+      "x": 3.0,
+      "y": 3
+    },
+    "creationDate": "Mar 16, 2024, 4:04:14 PM",
+    "height": 123.0,
+    "eyeColor": "GREEN",
+    "hairColor": "RED",
+    "nationality": "CHINA",
+    "location": {
+      "x": 123.0,
+      "y": 123,
+      "z": 123
+    }
+  }
+}
